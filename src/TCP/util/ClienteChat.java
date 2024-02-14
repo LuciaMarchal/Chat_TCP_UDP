@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.Serial;
 import java.net.Socket;
 
-public class Cliente extends JFrame implements ActionListener, Runnable {
+public class ClienteChat extends JFrame implements ActionListener, Runnable {
     @Serial
     private static final long serialVersionUID = 1L;
     Socket socket = null;
@@ -25,7 +25,7 @@ public class Cliente extends JFrame implements ActionListener, Runnable {
     JButton botonSalir = new JButton("Salir");
     boolean repetir = true;
 
-    public Cliente(Socket s, String nombre) {
+    public ClienteChat(Socket s, String nombre) {
         super(" CONEXIÓN DEL CLIENTE CHAT: " + nombre);
         setLayout(null);
 
@@ -121,7 +121,7 @@ public class Cliente extends JFrame implements ActionListener, Runnable {
 
         try {
             s = new Socket("localhost", puerto);
-            Cliente cliente = new Cliente(s, nombre);
+            ClienteChat cliente = new ClienteChat(s, nombre);
             cliente.setBounds(0, 0, 540, 400);
             cliente.setVisible(true);
             new Thread(cliente).start();
